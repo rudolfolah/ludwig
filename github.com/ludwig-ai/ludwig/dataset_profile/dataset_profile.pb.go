@@ -9,6 +9,7 @@
 //   > protoc --proto_path=. --python_out=. \
 //       ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
 //   > protoc --go_out=. ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
+//   > (alternative?) protoc --go_out=. ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
 //
 // Read more on proto compilation: https://developers.google.com/protocol-buffers/docs/reference/python-generated
 
