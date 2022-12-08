@@ -20,7 +20,7 @@
 
 syntax = "proto3";
 
-package dataset_profile;
+package dp;
 
 import "ludwig/profiling/proto/whylogs_messages.proto";
 

@@ -11,7 +11,7 @@
 
 syntax = "proto3";
 
-package dataset_profile;
+package dp;
 
 import "google/protobuf/any.proto";
 
