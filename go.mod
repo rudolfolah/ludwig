@@ -1,4 +1,4 @@
-module github.com/ludwig-ai/ludwig
+module github.com/ludwig-ai/ludwig/dataset_profile
 
 go 1.18
 
