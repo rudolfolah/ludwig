@@ -24,7 +24,7 @@
 //   > go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 //
 //   2. Generate go code.
-//   > protoc --go_out=ludwig/profiling/go/ ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
+//   > protoc --go_out=ludwig/profiling/go ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
 //
 // For protoc CLI help, check `man protoc`.
 
