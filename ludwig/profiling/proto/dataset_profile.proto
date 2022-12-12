@@ -1,30 +1,40 @@
 // To generate compiled proto code, run:
 //   (if protoc not installed yet)
 //   > sudo apt install protobuf-compiler
-//   > go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
-//   > go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
-//   > export PATH="$PATH:$(go env GOPATH)/bin"
 //
 //   Regenerate generated code.
+//   For python:
+//   Generate
 //   > protoc --proto_path=. --python_out=. \
 //       ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
-//   > protoc --go_out=. ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
+//
+//   In new python code, proto objects can be referenced like so:
+//
+//   > from ludwig.profiling import dataset_profile_pb2
+//   > dataset_profile = dataset_profile_pb2.DatasetProfile()
+//   > dataset_profile.num_examples = 10
+//   > dataset_profile.SerializeToString())
 //
 // Read more on proto compilation: https://developers.google.com/protocol-buffers/docs/reference/python-generated
-
-// Now run the compiler, specifying the source directory (where your application's source code lives – the current directory is used if you don't provide a value), the destination directory (where you want the generated code to go; often the same as $SRC_DIR), and the path to your .proto. In this case, you would invoke:
-
-// protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/addressbook.proto
-// Because you want Go code, you use the --go_out option – similar options are provided for other supported languages.
-// This generates github.com/protocolbuffers/protobuf/examples/go/tutorialpb/addressbook.pb.go in your specified destination directory.
+//
+//   For go:
+//   1. Install the go protocol buffers plugin (https://developers.google.com/protocol-buffers/docs/gotutorial)
+//
+//   > go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+//   > go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+//
+//   2. Generate go code.
+//   > protoc --go_out=ludwig/profiling/go/ ludwig/profiling/proto/whylogs_messages.proto ludwig/profiling/proto/dataset_profile.proto
+//
+// For protoc CLI help, check `man protoc`.
 
 syntax = "proto3";
 
-package dp;
+package dataset_profile;
 
 import "ludwig/profiling/proto/whylogs_messages.proto";
 
-option go_package = "github.com/ludwig-ai/ludwig/dp";
+option go_package = "github.com/ludwig-ai/ludwig/dataset_profile";
 
 
 // Dataset profile represents a collection of in-memory profiling stats for a
