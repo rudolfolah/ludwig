@@ -5,6 +5,7 @@ import sys
 import threading
 import time
 from collections import OrderedDict
+from datetime import datetime
 from typing import Any, Dict, Iterable, List, Optional, Tuple, Union
 
 import lightgbm as lgb
@@ -423,6 +424,7 @@ class LightGBMTrainer(BaseTrainer):
         last_validation_metric_value = last_validation_metric[-1]
 
         if improved(last_validation_metric_value, progress_tracker.best_eval_metric):
+            progress_tracker.last_improvement_timestamp = datetime.now().timestamp()
             progress_tracker.last_improvement_steps = progress_tracker.steps
             progress_tracker.best_eval_metric = last_validation_metric_value
 
